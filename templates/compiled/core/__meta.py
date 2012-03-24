@@ -1,0 +1,12 @@
+from __future__ import division
+from jinja2.runtime import LoopContext, TemplateReference, Macro, Markup, TemplateRuntimeError, missing, concat, escape, markup_join, unicode_join, to_string, identity, TemplateNotFound
+def run(environment):
+    name = '/source\\core\\__meta.html'
+
+    def root(context, environment=environment):
+        if 0: yield None
+        yield u'<!-- Meta -->\n<meta charset="utf-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">\n\n<!-- Are you currently reading this, robot/human? -->\n<meta name="robots" content="/robots.txt">\n<meta name="humans" content="/humans.txt">\n\n<meta name="description" content="Meals on Wheels by ACC provides a nutritious noontime meal and personal contact to homebound seniors five days a week. Approximately 2,300 Sacramento County seniors receive services through Meals on Wheels. Meals on Wheels by ACC is a tax extempt non-profit organization established to promote the general welfare and enhance the quality of life of older adults by identifying, developing, and providing culturally-sensitive health and human services, including nutrition services and related activities."/>\n<meta name="keywords" content="Meals on Wheels, ACC, Asian Community Center, Sacramento, senior care, non profit, elderly, help"/>\n\n<link rel="index" title="Meals on Wheels" href="mowtest_momentum.html"/>\n<link rel="next" title="What does Meals on Wheels by ACC do?" href="/what-we-do/"/>\n\n<!-- OpenGraph -->\n<meta property="og:title" content="Meals on Wheels">\n<meta property="og:type" content="website">\n<meta property="og:url" content="http://mowsac.org">\n<meta property="og:image" content="http://usa.static.cdn.accsv.org/img/static/mow/logo_meals_on_wheels.png">\n<meta property="og:site_name" content="Meals on Wheels, by ACC">\n<meta property="og:description" content="Meals on Wheels provides a nutritious noontime meal and personal contact to homebound seniors five days a week. Approximately 2,300 Sacramento County seniors receive services through Meals on Wheels.">\n<meta property="fb:app_id" content="">\n\n\n<meta name="viewport" content="width=device-width,initial-scale=1">'
+
+    blocks = {}
+    debug_info = ''
+    return locals()

@@ -1,0 +1,48 @@
+{% extends "core/__base.html" %}
+{% from "macros/cms.html" import render_snippet %}
+
+{% if page.ie %}
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+{% endif %}
+
+{% block body %}
+  <div id="wrapper_shadow_mow">
+    <div id="wrapper" class="hfeed">
+
+	  {% block masthead %}
+	      {% include "sections/mastheads/default.html" %}
+      {% endblock %}
+
+      <div id="top_image_mow">
+	      {% block top_image %}
+				<b>top image</b>
+	      {% endblock %}
+		  <div class="clear"></div>
+	  </div>
+
+
+      {% block body_content_wrapper %}
+
+	      <div id="body_content_mow">
+	        <div id="content-mow">
+
+		      {% block body_content %}
+					<b>body content</b>
+	          {% endblock %}
+
+	        </div><!-- content -->
+
+	        <div class="clear"></div>
+	      </div><!-- body_content -->
+
+	  {% endblock %}
+      <div class="clear"></div>
+	</div><!-- wrapper -->
+
+    <div class="clear"></div>
+  </div><!-- wrapper_shadow -->
+
+  {% block footer %}
+	{% include "sections/footers/default.html" %}
+  {% endblock footer %}
+{% endblock body %}

@@ -1,0 +1,11 @@
+{%- macro render_snippet(name) -%}
+	{% if caller %}
+		{% autoescape off %}
+			{{ page.cms.retrieve_content_fragment(name, caller) }}
+		{% endautoescape %}
+	{% else %}
+		{% autoescape off %}
+			{{ page.cms.retrieve_content_fragment(name) }}
+		{% endautoescape %}
+	{% endif %}
+{%- endmacro -%}

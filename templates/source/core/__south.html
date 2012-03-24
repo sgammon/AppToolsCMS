@@ -1,0 +1,43 @@
+<!-- Core Scripts -->
+<script src="{{ asset.script('modernizr', 'core') }}"></script>
+<script src="{{ asset.script('underscore', 'core') }}"></script>
+<script src="{{ asset.script('easing', 'jquery') }}"></script>
+
+<script>window.jQuery || document.write('<script src="{{ asset.script('jquery', 'core') }}"><\/script>')</script>
+
+<!-- Base Scripts -->
+<script src="/_ah/channel/jsapi"></script>
+<script src="{{ asset.script('base', 'apptools') }}"></script>
+{% if api.users.is_current_user_admin() %}<script src="{{ asset.script('cms', 'apptools') }}"></script>{% endif %}
+
+{# <!-- Project Scripts --> #}
+
+
+{# <!-- Services Manifest --> #}
+{%- if page.services or page.analytics -%}
+<script>
+{% block page_services %}
+	{%- if page.services -%}
+	{% from "macros/page_object.js" import build_page_object %}
+	{{ build_page_object(page.services.services_manifest, page.services.config) }}
+	{%- endif -%}
+{% endblock %}
+
+{% block page_analytics %}
+	{%- if not util.config.debug -%} {# // No analytics on the dev server... #}
+	{%- if page.analytics -%}
+		{% from "macros/page_analytics.js" import google_analytics_async %}
+		{{ google_analytics_async(page.analytics) }}
+	{%- endif -%}
+	{%- endif -%}
+{% endblock %}
+</script>
+
+{% if api.users.is_current_user_admin() %}
+<script>
+	$(document).ready(function () {
+	  $('.editable').cms();
+	});
+</script>
+{%- endif -%}
+{%- endif -%}

@@ -1,0 +1,71 @@
+{% extends "core/base_web.html" %}
+
+{% block top_image %}
+  <img src="/assets/img/static/mow/main_image_home.jpg" alt="main_image_home.jpg" title="main_image_home.jpg" width="1000" height="173" />
+{% endblock %}
+
+{% block body_content %}
+<aside id="content-left-mow">
+
+  <div id="primary" class="editable widget-area" role="complementary" data-snippet-keyname='home-leftcontent'>
+    {% call render_snippet('home-leftcontent') %}
+    <ul class="xoxo">
+
+      <li id="section-6" class="widget-container section-widget">
+        <a title= "Congregate Meal Sites" href="http://www.mowtest.com/congregate-meal-sites/">
+          <img src="/assets/img/static/mow/dining_out_sidebar.gif" width="203" height="74" class='image asset' data-asset-key='dining_out_sidebar' data-asset-package='mow' />
+        </a>
+        <br/><br/>
+        <a title="Home Delivered Meals" href="http://www.mowtest.com/home-delivered-meals/">
+          <img src="/assets/img/static/mow/dining_home_sidebar.gif" width="203" height="74" class='image asset' data-asset-key='dining_out_sidebar' data-asset-package='mow' />
+        </a>
+        <br/><br/>
+        <a title="What's for Lunch?" href="http://www.mowtest.com/documents/menu.pdf">
+          <img src="/assets/img/static/mow/what_for_lunch_sidebar.gif" width="203" height="74" class='image asset' data-asset-key='whats_for_lunch' data-asset-package='mow' />
+        </a>
+        <br/><br/>
+        <a title="Make a Donation" href="http://www.mowtest.com/making-a-donation/">
+          <img src="/assets/img/static/mow/donate_sidebar.gif" width="203" height="74" class='image asset' data-asset-key='make_a_donation' data-asset-package='mow' />
+        </a>
+      </li>
+
+    </ul>
+  {% endcall %}
+  </div>
+
+</aside>
+
+<section id="content-right-mow">
+
+  <article id="post-66" class="post-66 page type-page status-publish hentry">
+
+    <h2 class="entry-title">Home</h2>
+
+    <div class="entry-content editable" data-snippet-keyname='home-entrycontent'>
+      {% call render_snippet('home-entrycontent') %}
+        <table id="content_table">
+          <tr>
+            <td width="150">
+              <img src="/assets/img/static/mow/hm_whatsnew_header.png" width="132" height="86" />
+            </td>
+            <td class="new-items">
+              <p>Watch our latest 30-second TV commercial for Meals On Wheels of Sacramento County.</p>
+              <p>
+                <iframe src="http://player.vimeo.com/video/23270002?title=0&amp;byline=0&amp;portrait=0" width="300" height="200" frameborder="0"></iframe>
+              </p>
+              <hr/>
+              <p>Meals on Wheels by ACC was featured on Sacramento &amp; Co. <br/>View the video <a href="http://www.news10.net/news/local/story.aspx?storyid=142700"><b>&#8216;Meals on Wheels&#8217; Rolls Again</b></a>.
+              </p>
+              <hr/>
+            </td>
+          </tr>
+        </table>
+      {% endcall %}
+    </div>
+
+  </article>
+
+</div><!-- content-right -->
+
+<div class="clear"></div>
+{% endblock %}

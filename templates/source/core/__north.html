@@ -1,0 +1,17 @@
+{%- include "core/__meta.html" -%}
+
+<title>{% block title %}{% if page.title %}{{ page.title }}{% else %}{% if title %}{{ title }}{% endif %}{% endif %}{% endblock title %}Meals on Wheels - Powered by AppTools</title>
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{ asset.style('main', 'compiled') }}">
+
+{% if page.ie %}
+	<link rel="stylesheet" href="{{ asset.style('ie', 'compiled') }}">
+{% endif %}
+
+{% if api.users.is_current_user_admin() %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset.style('main.min', 'cms') }}" />
+{% endif  %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset.script('extern', 'mow') }}"></script>

@@ -1,0 +1,55 @@
+{% from "macros/cms.html" import render_snippet %}
+	  <footer id="footer" role="contentinfo">
+	    <div id="colophon">
+	      <div id="footer-widget-area" role="complementary">
+
+	        <div id="first" class="widget-area">
+	          <ul class="xoxo">
+	            <li id="text-3" class="widget-container widget_text">
+	              <div class="textwidget">
+
+	                <div id="footer_address" class='editable' data-snippet-keyname='footer_address'>
+	                {% call render_snippet('footer_address') %}
+	                      7311 Greenhaven Drive, Ste. 190, Sacramento CA 95831<br/>
+	                      Voice: (916) 444-9533<br/>
+	                      TDD: (916) 394-9155<br/>
+	                      Toll free: (877) 434-8075<br/>
+	                      Fax: (916) 394-9156
+	                {% endcall %}
+	                </div>
+
+	              </div>
+	            </li>
+	          </ul>
+	        </div>
+
+	        <div id="fourth" class="widget-area">
+	          <ul class="xoxo">
+	            <li id="text-5" class="widget-container widget_text">
+	              <div class="textwidget">
+	                <div class="footer_nav editable" data-snippet-keyname='footer_nav'>
+	                  {% call render_snippet('footer_nav') %}
+
+	                    <a title="Home" href="http://mowtest.com/">Home</a>&nbsp;|&nbsp;
+	                    <a title="About Us" href="http://mowtest.com/what-we-do/">About Us</a>&nbsp;|&nbsp;
+	                    <a title="Become a Volunteer" href="http://mowtest.com/volunteer/">Become a Volunteer</a>&nbsp;|&nbsp;
+	                    <a title="If You Need Meals" href="http://mowtest.com/if-you-need-meals/">If You Need Meals</a>&nbsp;|&nbsp;
+	                    <a title="Support Our Work" href="http://mowtest.com/support-our-work/">Support Our Work</a>
+	                    <br/>
+	                    <a title="FAQ" href="http://mowtest.com/faq/">FAQ</a>&nbsp;|&nbsp;
+	                    <a title="Media" href="http://mowtest.com/media/">Media</a>&nbsp;|&nbsp;
+	                    <a title="Resources" href="http://mowtest.com/resources/">Resources</a>&nbsp;|&nbsp;
+	                    <a title="Contact Us" href="http://mowtest.com/contact/">Contact Us</a>
+	                    <br/><br/>
+	                    Copyright Â© 2010 Meals on Wheels by ACC Inc.
+	                    <br/>
+	                    All Rights Reserved.
+	                {% endcall %}
+	                </div>
+	              </div>
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+	    </div>
+	  </footer>

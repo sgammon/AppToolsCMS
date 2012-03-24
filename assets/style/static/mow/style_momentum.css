@@ -1,0 +1,361 @@
+/* 
+
+
+---------- [ momentum labs ] ----------
+
+project: ACCSV - Meals on Wheels
+version: 0.0.2
+created: 2/6/12
+modified: 2/7/12
+license: all rights reserved. all content © momentum labs, 2012.
+
+version history:
+---------------
+[0.0.2] removed conflicting styles
+[0.0.1] Added selectors for all page items, moved inline styles over, added two temporary table ID selectors
+
+---------- [  momentum.io  ] ----------
+
+
+*/
+
+
+
+
+/* begin styles
+--------------------------------------- */
+
+
+/* --- reset --- */
+
+html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, a, em, img, ol, ul, li, fieldset, form, label, textarea, input, select {}
+img, a img {
+    border: none !important;
+    margin: 0;
+}
+:focus {}
+
+
+/* --- element globals --- */
+
+html {
+    /* inlined styles */
+    direction: ltr;
+}
+body {}
+div {}
+table, th, thead, tbody, tr {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td {
+
+    /* inlined */
+    vertical-align: top;
+    padding-right: 5px;
+
+}
+hr {}
+
+/* html5 */
+
+header {}
+section {}
+article {}
+aside {}
+footer {}
+
+
+/* --- typography --- */
+
+/* headings */
+
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    font-weight: normal;
+}
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin: 0;}
+
+/* links */
+
+a {}
+a:hover, a:active {}
+a:visited {}
+
+/* text elements */
+
+p {}
+em {}
+b, strong {
+    font-weight: bold;
+}
+sup,sub {}
+blockquote {}
+pre {
+    font-family: Courier, monospace;
+}
+code {
+    font-family: Monaco, Consolas, Courier, monospace;
+}
+
+/* lists */
+
+li ul, li ol {}
+ul, ol {
+    list-style: none;
+}
+
+
+/* text alignment */
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+
+/* semantic type classes */
+
+.small {font-size: 0.9em;}
+.smaller {font-size: 0.8em;}
+.smallest {font-size: 0.7em;}
+
+.big {font-size: 1.2em;}
+.bigger {font-size: 1.3em;}
+.biggest {font-size: 1.4em;}
+
+.silent {
+    display: none;
+}
+
+.quiet, .quiet a {
+    color: #999; 
+    font-style:italic; 
+}
+.loud, .loud a {
+    color: #000;
+}
+.highlight, .highlight a {
+    background: #ff0;
+}
+
+
+/* --- forms --- */
+
+label {}
+textarea {}
+
+input, input.text, input.button, textarea, select {
+    font-family: Georgia, serif;
+}
+input.text:focus, textarea:focus, select:focus {}
+input.button:focus, input.button:active {}
+input.first {}
+
+.form-error {
+    border-color: #f00;
+}
+
+
+/* --- alignment --- */
+
+.center, .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* displays */
+.hidden {
+    display: hidden;
+}
+.block {
+    display: block;
+}
+.inline {
+    display: inline;
+}
+.inline-block {
+    display: inline-block;
+}
+.table {
+    display: table;
+}
+
+/* floats */
+
+.left, .alignleft {
+    float: left;
+}
+.right, .alignright {
+    float: right;
+}
+.clear, .clearer {
+    clear: both;
+}
+.clearer {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+/* images */
+
+img.bordered, img.alignleft, img.alignright, img.aligncenter {
+    padding: 3px;
+}
+img.alignleft, img.left {
+    margin: 0 1.5em 1em 0; 
+    vertical-align: middle;
+}
+img.alignright, img.right {
+    margin: 0 0 1em 1.5em;
+}
+
+
+/* --- m-o-w proprietary classes --- */
+
+.hfeed {}
+.skip-link {}
+.screen-reader-text {}
+.clear{}
+.xoxo {}
+
+
+/* nav */
+.menu {}
+.menu-header{}
+.sub-menu {}
+
+
+/* widgets */
+.widget-area {}
+.widget-container {}
+.widget_text {}
+.textwidget {}
+
+
+/* content */
+.entry-title {
+
+    /* inlined */
+    display: none !important;
+}
+.new-items p {
+    
+    /* inlined */
+    margin: 0 0 15px 0;
+    font-size: 13px;
+}
+.entry-content {}
+.nocomments {}
+
+
+/* --- layout --- */
+
+#wrapper_shadow_mow {}
+#wrapper {
+    
+    /* inlined */
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+/* header & nav */
+
+#header {}
+#masthead {
+    
+    /* inlined */
+    border: 0;
+}
+#masthead_middle_mow {}
+#branding {
+    
+    /* inlined */
+    border: 0;
+}
+#logo_mow {}
+#support_work_top_mow {
+    
+    /* inlined */
+    padding: 0;
+    margin: 13px 20px 0 0;
+}
+#access {}
+#menu-top-menu-mow {}
+#top_image_mow {}
+
+/* content */
+
+#body_content_mow {}
+#content-mow {}
+#content-left-mow {}
+/*
+#primary, #secondary {
+    float: left;
+    overflow: hidden;
+    width: 200px;
+}
+#secondary {
+    clear: right;
+}
+*/
+#comments {}
+
+/* footer */
+
+#footer {
+
+    /* inlined */
+    border: 0;
+    margin-top: 0;
+}
+#footer_address {}
+#footer_nav {}
+#colophon {
+    
+    /* inlined */
+    border: 0;
+    margin-top: 0;
+    padding: 10px;
+}
+#footer-widget-area {}
+#first {}
+#fourth {}
+
+
+
+/* --- temporary table fix --- */
+
+#contact_table { 
+    width: 220px;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: 0;
+    font: normal 11px Arial;
+}
+
+/* 202 -> 277 */
+#content_table {
+    width: 690px;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: 0;
+}
+
+
+/* --- ie fixes --- */
+* html {}
