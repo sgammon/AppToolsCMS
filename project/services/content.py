@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import hashlib
 
 from protorpc import remote
@@ -31,14 +32,14 @@ class ContentService(BaseService):
         if request.snippet_key is not None:
             self.api.memcache.delete('Snippet//' + hashlib.sha256(request.snippet_key).hexdigest())
 
-        snippet = ContentSnippet(key_name=request.snippet_keyname, content=request.inner_html)
+        snippet = ContentSnippet(key=self.ext.ndb.Key('ContentSnippet', request.snippet_keyname), content=request.inner_html)
         snippet.put()
 
-        if snippet.key().name() is not None:
-            self.api.memcache.set('Snippet//' + hashlib.sha256(snippet.key().name()).hexdigest(), snippet.content)
-        self.api.memcache.set('Snippet//' + hashlib.sha256(str(snippet.key())).hexdigest(), snippet.content)
+        if snippet.key.string_id() is not None:
+            self.api.memcache.set('Snippet//' + hashlib.sha256(snippet.key.string_id()).hexdigest(), snippet.content)
+        self.api.memcache.set('Snippet//' + hashlib.sha256(snippet.key.urlsafe()).hexdigest(), snippet.content)
 
-        return messages.ContentResponse(snippet_key=str(snippet.key()), snippet_keyname=str(snippet.key().name()), inner_html=request.inner_html)
+        return messages.ContentResponse(snippet_key=str(snippet.key.urlsafe()), snippet_keyname=str(snippet.key.string_id()), inner_html=request.inner_html)
 
     @remote.method(messages.GetContentRequest, messages.ContentResponse)
     def get_snippet(self, request):

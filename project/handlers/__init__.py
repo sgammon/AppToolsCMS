@@ -24,10 +24,10 @@ class WebHandler(BaseHandler):
 
         snippet = self.api.memcache.get('Snippet//' + hashlib.sha256(key_or_name).hexdigest())
         if snippet is None:
-            snippet = ContentSnippet.get_by_key_name(key_or_name)
+            snippet = self.ext.ndb.Key('ContentSnippet', key_or_name).get()
             if snippet is None:
                 try:
-                    snippet = self.api.db.get(self.api.db.Key(key_or_name))
+                    snippet = self.ext.ndb.get(self.ext.ndb.Key(urlsafe=key_or_name))
                 except:
                     snippet_content = default_content()
                 if snippet is None:

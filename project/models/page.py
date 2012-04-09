@@ -1,13 +1,15 @@
 from google.appengine.ext import db
+from project.models.site import Site
 
 
-class SitePage(db.Model):
+class Page(db.Model):
 
     ''' Represents a content fragment that can be edited. '''
 
     # Basic Stuff
     name = db.StringProperty(indexed=False)
     title = db.StringProperty(indexed=False)
+    site = db.ReferenceProperty(Site, collection_name='pages')
 
     # Security Stuff
     adminonly = db.BooleanProperty(default=False, indexed=False)
@@ -26,7 +28,7 @@ class PageMetaTag(db.Model):
 
     ''' Represents a meta tag that is injected into a page. '''
 
-    page = db.ReferenceProperty(SitePage, collection_name='metatags')
+    page = db.ReferenceProperty(Page, collection_name='metatags')
     name = db.StringProperty(indexed=False)
     value = db.StringProperty(indexed=False)
 
@@ -35,7 +37,7 @@ class PageStylesheet(db.Model):
 
     ''' Attaches a stylesheet to be injected into a page. '''
 
-    page = db.ReferenceProperty(SitePage, collection_name='stylesheets')
+    page = db.ReferenceProperty(Page, collection_name='stylesheets')
     name = db.StringProperty(indexed=False)
     media = db.StringProperty(choices=['all', 'screen', 'print', 'handheld', 'embossed', 'braille', 'speech', 'tty', 'tv'], indexed=False)
     adminonly = db.BooleanProperty(indexed=False)
@@ -53,7 +55,7 @@ class SiteJavaScript(db.Model):
     ''' Attaches a JavaScript to be injected into a page. '''
 
     name = db.StringProperty(indexed=False)
-    site = db.ReferenceProperty(SitePage, collection_name='javascripts')
+    site = db.ReferenceProperty(Page, collection_name='javascripts')
 
     # If it's a registered asset...
     package = db.StringProperty(indexed=True)

@@ -1,5 +1,4 @@
 import sys
-import logging
 
 if 'lib' not in sys.path:
     # Add lib as primary libraries directory, with fallback to lib/dist

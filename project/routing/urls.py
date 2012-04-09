@@ -18,6 +18,14 @@ rules = [
             Route('/logout', name='auth/logout', handler='Logout'),
             Route('/register', name='auth/register', handler='Register'),
 
+        ]),
+
+        ## === API URLs === ##
+        HandlerPrefixRoute('api.', [
+
+            Route('/_api/upload/passthrough/<session>', name='upload-passthrough', handler='UploadCallback'),
+            Route('/_api/upload/callback/<session>', name='upload-callback', handler='UploadPassthrough'),
+
         ])
 
     ])

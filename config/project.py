@@ -32,7 +32,7 @@ config['apptools.project.output'] = {
 
     # Output Configuration
 
-    'minify': True,      # whether to minify page output or not
+    'minify': False,      # whether to minify page output or not
     'optimize': True,     # whether to use the async script loader or not
     'standalone': False,  # whether to render only the current template, or the whole context (ignores "extends")
 
@@ -47,8 +47,8 @@ config['apptools.project.output'] = {
     },
 
     'assets': {  # Asset API
-        'minified': True,        # whether to switch to minified assets or not
-        'serving_mode': 'cdn',  # 'local' or 'cdn' (CDN prefixes all assets with an absolute URL)
+        'minified': False,        # whether to switch to minified assets or not
+        'serving_mode': 'local',  # 'local' or 'cdn' (CDN prefixes all assets with an absolute URL)
         'cdn_prefix': [
 
             'west-1.usa.static.cdn.accsv.org',

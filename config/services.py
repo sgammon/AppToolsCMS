@@ -63,6 +63,19 @@ config['apptools.project.services'] = {
             }
         },
 
+        ## Blog API - for adding / editing blog posts, placing a blog on the site, etc
+        'blog': {
+            'enabled': True,
+            'service': 'project.services.blog.BlogService',
+            'methods': ['put_blog', 'delete_blog', 'put_post', 'delete_post', 'list_posts', 'search_posts', 'list_blogs'],
+
+            'config': {
+                'caching': 'safe',
+                'security': 'private',
+                'recording': 'none'
+            }
+        },
+
         ## Page API - for creating and managing site pages
         'page': {
             'enabled': True,
