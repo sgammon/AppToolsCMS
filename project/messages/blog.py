@@ -27,10 +27,10 @@ class PrivacyOptions(messages.Message):
     ''' Sets privacy options for an object. '''
 
     acl = messages.StringField(1, repeated=True)
-    visbility = messages.EnumField(Visibility)
-    admin_acl = messages.StringField(7, repeated=True)
-    editor_acl = messages.StringField(8, repeated=True)
-    commenting = messages.BooleanField(9)
+    visbility = messages.EnumField(Visibility, 2)
+    admin_acl = messages.StringField(3, repeated=True)
+    editor_acl = messages.StringField(4, repeated=True)
+    commenting = messages.BooleanField(5)
 
 
 class Blog(messages.Message):
@@ -63,7 +63,7 @@ class BlogPost(messages.Message):
     body = messages.StringField(8)
     excerpt = messages.StringField(9)
     published = messages.BooleanField(10)
-    privacy = messages.MessageFiels(11)
+    privacy = messages.MessageField(PrivacyOptions, 11)
     tags = messages.StringField(12)
 
 

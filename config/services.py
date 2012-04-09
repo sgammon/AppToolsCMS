@@ -80,7 +80,7 @@ config['apptools.project.services'] = {
         'page': {
             'enabled': True,
             'service': 'project.services.page.PageService',
-            'methods': ['set_meta_tags', 'set_title', 'change_parent', 'set_stylesheets', 'set_javascripts', 'set_opengraph', 'set_security', 'get', 'change_wrapper', 'publish', 'unpublish'],
+            'methods': ['put', 'list', 'set_meta_tags', 'set_title', 'change_parent', 'set_stylesheets', 'set_javascripts', 'set_opengraph', 'set_security', 'get', 'change_wrapper', 'publish', 'unpublish'],
 
             'config': {
                 'caching': 'none',

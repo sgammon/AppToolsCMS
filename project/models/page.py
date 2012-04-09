@@ -1,65 +1,65 @@
-from google.appengine.ext import db
+from google.appengine.ext import ndb
 from project.models.site import Site
 
 
-class Page(db.Model):
+class Page(ndb.Model):
 
     ''' Represents a content fragment that can be edited. '''
 
     # Basic Stuff
-    name = db.StringProperty(indexed=False)
-    title = db.StringProperty(indexed=False)
-    site = db.ReferenceProperty(Site, collection_name='pages')
+    name = ndb.StringProperty(indexed=False)
+    title = ndb.StringProperty(indexed=False)
+    site = ndb.KeyProperty()
 
     # Security Stuff
-    adminonly = db.BooleanProperty(default=False, indexed=False)
-    httpsonly = db.BooleanProperty(default=False, indexed=False)
-    published = db.BooleanProperty(default=False, indexed=False)
+    adminonly = ndb.BooleanProperty(default=False, indexed=False)
+    httpsonly = ndb.BooleanProperty(default=False, indexed=False)
+    published = ndb.BooleanProperty(default=False, indexed=False)
 
     # Display Stuff
-    wrapper = db.StringProperty(default='__base.html')
+    wrapper = ndb.StringProperty(default='__base.html')
 
     # Routing Stuff
-    urlpaths = db.StringListProperty(indexed=True)
-    primary_path = db.StringProeprty(indexed=True)
+    urlpaths = ndb.StringProperty(indexed=True, repeated=True)
+    primary_path = ndb.StringProperty(indexed=True)
 
 
-class PageMetaTag(db.Model):
+class PageMetaTag(ndb.Model):
 
     ''' Represents a meta tag that is injected into a page. '''
 
-    page = db.ReferenceProperty(Page, collection_name='metatags')
-    name = db.StringProperty(indexed=False)
-    value = db.StringProperty(indexed=False)
+    page = ndb.KeyProperty()
+    name = ndb.StringProperty(indexed=False)
+    value = ndb.StringProperty(indexed=False)
 
 
-class PageStylesheet(db.Model):
+class PageStylesheet(ndb.Model):
 
     ''' Attaches a stylesheet to be injected into a page. '''
 
-    page = db.ReferenceProperty(Page, collection_name='stylesheets')
-    name = db.StringProperty(indexed=False)
-    media = db.StringProperty(choices=['all', 'screen', 'print', 'handheld', 'embossed', 'braille', 'speech', 'tty', 'tv'], indexed=False)
-    adminonly = db.BooleanProperty(indexed=False)
+    page = ndb.KeyProperty()
+    name = ndb.StringProperty(indexed=False)
+    media = ndb.StringProperty(choices=['all', 'screen', 'print', 'handheld', 'embossed', 'braille', 'speech', 'tty', 'tv'], indexed=False)
+    adminonly = ndb.BooleanProperty(indexed=False)
 
     # If it's a registered asset...
-    package = db.StringProperty(indexed=False)
-    entry = db.StringProperty(indexed=False)
+    package = ndb.StringProperty(indexed=False)
+    entry = ndb.StringProperty(indexed=False)
 
     # If it's a giant string...
-    content = db.TextProperty()
+    content = ndb.TextProperty()
 
 
-class SiteJavaScript(db.Model):
+class SiteJavaScript(ndb.Model):
 
     ''' Attaches a JavaScript to be injected into a page. '''
 
-    name = db.StringProperty(indexed=False)
-    site = db.ReferenceProperty(Page, collection_name='javascripts')
+    name = ndb.StringProperty(indexed=False)
+    site = ndb.KeyProperty()
 
     # If it's a registered asset...
-    package = db.StringProperty(indexed=True)
-    entry = db.StringProperty(indexed=True)
+    package = ndb.StringProperty(indexed=True)
+    entry = ndb.StringProperty(indexed=True)
 
     # If it's a giant string...
-    content = db.TextProperty()
+    content = ndb.TextProperty()

@@ -1,61 +1,60 @@
-from google.appengine.ext import db
-from project.models.page import SitePage
+from google.appengine.ext import ndb
 
 
-class Site(db.Model):
+class Site(ndb.Model):
 
     ''' Represents a content fragment that can be edited. '''
 
     # Basic Stuff
-    name = db.StringProperty(default='AppTools CMS', indexed=False)
-    basepath = db.StringProperty(default='/', indexed=True)
+    name = ndb.StringProperty(default='AppTools CMS', indexed=False)
+    basepath = ndb.StringProperty(default='/', indexed=True)
 
     # Security Stuff
-    adminonly = db.BooleanProperty(default=False, indexed=False)
-    httpsonly = db.BooleanProperty(default=False, indexed=False)
-    published = db.BooleanProperty(default=False, indexed=False)
+    adminonly = ndb.BooleanProperty(default=False, indexed=False)
+    httpsonly = ndb.BooleanProperty(default=False, indexed=False)
+    published = ndb.BooleanProperty(default=False, indexed=False)
 
     # Routing Stuff
-    homepage = db.ReferenceProperty(SitePage, collection_name='site')
-    subpages = db.ListProperty(db.Key)
+    homepage = ndb.KeyProperty()
+    subpages = ndb.KeyProperty(repeated=True)
 
 
-class SiteMetaTag(db.Model):
+class SiteMetaTag(ndb.Model):
 
     ''' Represents a meta tag that is injected site-wide. '''
 
-    site = db.ReferenceProperty(Site, collection_name='metatags')
-    name = db.StringProperty(indexed=False)
-    value = db.StringProperty(indexed=False)
+    site = ndb.KeyProperty()
+    name = ndb.StringProperty(indexed=False)
+    value = ndb.StringProperty(indexed=False)
 
 
-class SiteStylesheet(db.Model):
+class SiteStylesheet(ndb.Model):
 
     ''' Attaches a stylesheet to be injected site-wide. '''
 
-    name = db.StringProperty(indexed=False)
-    site = db.ReferenceProperty(Site, collection_name='stylesheets')
-    media = db.StringProperty(choices=['all', 'screen', 'print', 'handheld', 'embossed', 'braille', 'speech', 'tty', 'tv'], indexed=False)
-    adminonly = db.BooleanProperty(indexed=False)
+    name = ndb.StringProperty(indexed=False)
+    site = ndb.KeyProperty()
+    media = ndb.StringProperty(choices=['all', 'screen', 'print', 'handheld', 'embossed', 'braille', 'speech', 'tty', 'tv'], indexed=False)
+    adminonly = ndb.BooleanProperty(indexed=False)
 
     # If it's a registered asset...
-    package = db.StringProperty(indexed=False)
-    entry = db.StringProperty(indexed=False)
+    package = ndb.StringProperty(indexed=False)
+    entry = ndb.StringProperty(indexed=False)
 
     # If it's a giant string...
-    content = db.TextProperty()
+    content = ndb.TextProperty()
 
 
-class SiteJavaScript(db.Model):
+class SiteJavaScript(ndb.Model):
 
     ''' Attaches a JavaScript file to be injected site-wide. '''
 
-    name = db.StringProperty(indexed=False)
-    site = db.ReferenceProperty(Site, collection_name='javascripts')
+    name = ndb.StringProperty(indexed=False)
+    site = ndb.KeyProperty()
 
     # If it's a registered asset...
-    package = db.StringProperty(indexed=True)
-    entry = db.StringProperty(indexed=True)
+    package = ndb.StringProperty(indexed=True)
+    entry = ndb.StringProperty(indexed=True)
 
     # If it's a giant string...
-    content = db.TextProperty()
+    content = ndb.TextProperty()

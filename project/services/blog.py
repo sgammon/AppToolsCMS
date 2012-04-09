@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 from apptools.services import remote
 from apptools.services import message_types
 
-from project.models import blog as models
+from project.models import content as models
 from project.messages import blog as messages
 
 
@@ -316,3 +316,10 @@ class BlogService(BaseService):
 
         except Exception:
             raise PostNotFound("The specified post could not be found, either because the key was malformed or it does not exist.")
+
+    @remote.method(message_types.VoidMessage, message_types.VoidMessage)
+    def search_posts(self, request):
+
+        ''' Not yet implemented. '''
+
+        raise remote.ApplicationError("This method is not yet implemented.")
